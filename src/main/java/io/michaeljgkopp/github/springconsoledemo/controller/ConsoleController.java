@@ -48,13 +48,11 @@ public class ConsoleController {
             menu.addItem(new MenuItem("Add Product", this::addProduct));
             menu.addItem(new MenuItem("Update Product", this::updateProduct));
             menu.addItem(new MenuItem("Delete Product", this::deleteProduct));
-            System.out.println("-".repeat(30));
 
             menu.addItem(new MenuItem("List Customers", this::listCustomers));
             menu.addItem(new MenuItem("Add Customer", this::addCustomer));
             menu.addItem(new MenuItem("Update Customer", this::updateCustomer));
             menu.addItem(new MenuItem("Delete Customer", this::deleteCustomer));
-            System.out.println("-".repeat(30));
 
             menu.addItem(new MenuItem("List Orders", this::listOrders));
             menu.addItem(new MenuItem("Add Order", this::addOrder));
@@ -109,9 +107,9 @@ public class ConsoleController {
         if (product == null) return;
 
         System.out.println("Are you sure you want to delete this product? (y/n)");
-        if (scanner.nextLine().trim().equalsIgnoreCase("y")) ;
-
-        productService.deleteProduct(product.getId());
+        if (scanner.nextLine().trim().equalsIgnoreCase("y")) {
+            productService.deleteProduct(product.getId());
+        }
     }
 
     private Product retrieveProduct() {
@@ -186,9 +184,9 @@ public class ConsoleController {
         if (customer == null) return;
 
         System.out.println("Are you sure you want to delete this customer? (y/n)");
-        if (scanner.nextLine().trim().equalsIgnoreCase("y")) ;
-
-        customerService.deleteCustomer(customer.getId());
+        if (scanner.nextLine().trim().equalsIgnoreCase("y")) {
+            customerService.deleteCustomer(customer.getId());
+        }
     }
 
     private Customer retrieveCustomer() {
@@ -280,9 +278,9 @@ public class ConsoleController {
         if (order == null) return;
 
         System.out.println("Are you sure you want to delete this order? (y/n)");
-        if (scanner.nextLine().trim().equalsIgnoreCase("y")) ;
-
-        orderService.deleteOrder(order.getId());
+        if (scanner.nextLine().trim().equalsIgnoreCase("y")) {
+            orderService.deleteOrder(order.getId());
+        }
     }
 
     private Order retrieveOrder() {
