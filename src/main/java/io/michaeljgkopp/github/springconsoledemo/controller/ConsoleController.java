@@ -12,6 +12,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -232,6 +233,9 @@ public class ConsoleController {
     }
 
     private void addProductToOrder(Order order) {
+
+        order.setProducts(new ArrayList<>());
+
         while (true) {
             System.out.print("Enter product id to add to order (or 0 to finish): ");
             String input = scanner.nextLine().trim();

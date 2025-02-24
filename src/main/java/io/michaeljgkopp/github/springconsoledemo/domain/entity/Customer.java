@@ -24,7 +24,7 @@ public class Customer {
     @Column(name = "email")
     private String email;
 
-    @OneToMany(fetch = FetchType.EAGER,
+    @OneToMany(fetch = FetchType.LAZY,
             mappedBy = "customer",
             cascade = CascadeType.ALL,
             orphanRemoval = true)

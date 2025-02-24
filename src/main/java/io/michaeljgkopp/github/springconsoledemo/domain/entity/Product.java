@@ -21,7 +21,7 @@ public class Product { // Renamed to Product
     @Column(name = "price")
     private double price;
 
-    @ManyToMany(fetch = FetchType.EAGER,
+    @ManyToMany(fetch = FetchType.LAZY,
             mappedBy = "products")
     private List<Order> orders = new ArrayList<>();
 
