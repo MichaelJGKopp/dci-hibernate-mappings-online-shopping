@@ -2,6 +2,7 @@ package io.michaeljgkopp.github.springconsoledemo.infrastructure.persistence;
 
 import io.michaeljgkopp.github.springconsoledemo.domain.dao.CustomerDAO;
 import io.michaeljgkopp.github.springconsoledemo.domain.entity.Customer;
+import io.michaeljgkopp.github.springconsoledemo.domain.entity.Order;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
@@ -35,9 +36,12 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
-    public void delete(Long id) {
-        Customer customer = findById(id);
+    public void delete(Customer customer) {
         if (customer != null) {
+            List<Order> orders = customer.getOrders();
+            if (orders != null) {
+                orders.forEach(order -> order.setCustomer(null));
+            }
             entityManager.remove(customer);
         }
     }

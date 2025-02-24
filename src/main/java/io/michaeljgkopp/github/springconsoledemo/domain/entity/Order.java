@@ -30,8 +30,7 @@ public class Order {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @ManyToMany(fetch = FetchType.EAGER,
-            cascade = {CascadeType.MERGE})
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "order_products",
             joinColumns = @JoinColumn(name = "order_id"),

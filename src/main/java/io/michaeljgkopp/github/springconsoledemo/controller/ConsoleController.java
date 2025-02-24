@@ -8,7 +8,6 @@ import io.michaeljgkopp.github.springconsoledemo.presentation.MenuItem;
 import io.michaeljgkopp.github.springconsoledemo.service.CustomerService;
 import io.michaeljgkopp.github.springconsoledemo.service.OrderService;
 import io.michaeljgkopp.github.springconsoledemo.service.ProductService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -39,7 +38,7 @@ public class ConsoleController {
         return args -> {
 
             // Populate some dummy data
-            populateDummyData();
+//            populateDummyData();
 
             // Main Menu
             Menu menu = new Menu("Online Shopping System");
@@ -108,7 +107,7 @@ public class ConsoleController {
 
         System.out.println("Are you sure you want to delete this product? (y/n)");
         if (scanner.nextLine().trim().equalsIgnoreCase("y")) {
-            productService.deleteProduct(product.getId());
+            productService.deleteProduct(product);
         }
     }
 
@@ -185,7 +184,7 @@ public class ConsoleController {
 
         System.out.println("Are you sure you want to delete this customer? (y/n)");
         if (scanner.nextLine().trim().equalsIgnoreCase("y")) {
-            customerService.deleteCustomer(customer.getId());
+            customerService.deleteCustomer(customer);
         }
     }
 
@@ -279,7 +278,7 @@ public class ConsoleController {
 
         System.out.println("Are you sure you want to delete this order? (y/n)");
         if (scanner.nextLine().trim().equalsIgnoreCase("y")) {
-            orderService.deleteOrder(order.getId());
+            orderService.deleteOrder(order);
         }
     }
 

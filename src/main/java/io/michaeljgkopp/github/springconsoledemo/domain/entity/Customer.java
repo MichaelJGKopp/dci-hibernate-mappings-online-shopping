@@ -25,7 +25,9 @@ public class Customer {
     private String email;
 
     @OneToMany(fetch = FetchType.EAGER,
-            mappedBy = "customer", cascade = CascadeType.ALL)
+            mappedBy = "customer",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
     private List<Order> orders = new ArrayList<>();
 
     // Constructors, Getters, Setters

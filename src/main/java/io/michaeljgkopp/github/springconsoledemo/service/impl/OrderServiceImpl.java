@@ -37,7 +37,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    public void deleteOrder(Long id) {
-        orderDAO.delete(id);
+    public void deleteOrder(Order order) {
+        orderDAO.delete(order);
     }
 }

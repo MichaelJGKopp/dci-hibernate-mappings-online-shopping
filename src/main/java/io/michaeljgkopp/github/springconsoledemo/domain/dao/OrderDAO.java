@@ -11,5 +11,5 @@ public interface OrderDAO {
 
     void save(Order order);
 
-    void delete(Long id);
+    void delete(Order order);
 }

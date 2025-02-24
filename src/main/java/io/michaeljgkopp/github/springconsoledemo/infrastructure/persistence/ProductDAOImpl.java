@@ -1,11 +1,11 @@
 package io.michaeljgkopp.github.springconsoledemo.infrastructure.persistence;
 
 import io.michaeljgkopp.github.springconsoledemo.domain.dao.ProductDAO;
+import io.michaeljgkopp.github.springconsoledemo.domain.entity.Order;
 import io.michaeljgkopp.github.springconsoledemo.domain.entity.Product;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -35,9 +35,12 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public void delete(Long id) {
-        Product product = findById(id);
+    public void delete(Product product) {
         if (product != null) {
+            List<Order> orders = product.getOrders();
+            if (orders != null) {
+                orders.forEach(order -> order.getProducts().remove(product));
+            }
             entityManager.remove(product);
         }
     }

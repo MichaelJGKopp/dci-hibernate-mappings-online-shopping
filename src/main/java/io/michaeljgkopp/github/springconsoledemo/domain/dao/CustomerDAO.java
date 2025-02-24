@@ -11,5 +11,5 @@ public interface CustomerDAO {
 
     void save(Customer customer);
 
-    void delete(Long id);
+    void delete(Customer customer);
 }
