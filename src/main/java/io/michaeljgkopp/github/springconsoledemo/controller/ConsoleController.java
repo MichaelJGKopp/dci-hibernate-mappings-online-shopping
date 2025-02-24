@@ -107,7 +107,7 @@ public class ConsoleController {
 
         System.out.println("Are you sure you want to delete this product? (y/n)");
         if (scanner.nextLine().trim().equalsIgnoreCase("y")) {
-            productService.deleteProduct(product);
+            productService.deleteProduct(product.getId());
         }
     }
 
@@ -184,7 +184,7 @@ public class ConsoleController {
 
         System.out.println("Are you sure you want to delete this customer? (y/n)");
         if (scanner.nextLine().trim().equalsIgnoreCase("y")) {
-            customerService.deleteCustomer(customer);
+            customerService.deleteCustomer(customer.getId());
         }
     }
 
@@ -278,7 +278,7 @@ public class ConsoleController {
 
         System.out.println("Are you sure you want to delete this order? (y/n)");
         if (scanner.nextLine().trim().equalsIgnoreCase("y")) {
-            orderService.deleteOrder(order);
+            orderService.deleteOrder(order.getId());
         }
     }
 
